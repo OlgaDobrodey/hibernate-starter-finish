@@ -18,14 +18,16 @@ public class HibernateRunner {
 //                );
 
         Configuration configuration = new Configuration();
-        configuration.configure();
+//        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy()); -change способ сохранения в базу данных названий
+//        configuration.addAnnotatedClass(User.class);
 //        configuration.configure("path/to/cfg.xml");
+        configuration.configure();
         try (SessionFactory sessionFactory = configuration.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
             User user = User.builder()
-                    .username("ivan1@gmail.com")
+                    .username("ivan2@gmail.com")
                     .firstname("Ivan")
                     .lastname("Ivanov")
                     .birthDate(LocalDate.of(2000, 1, 19))
