@@ -18,7 +18,7 @@ public class HibernateRunner {
 //                );
 
         Configuration configuration = new Configuration();
-//        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy()); -change способ сохранения в базу данных названий
+//        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy()); -change
 //        configuration.addAnnotatedClass(User.class);
 //        configuration.configure("path/to/cfg.xml");
         configuration.configure();
