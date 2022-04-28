@@ -1,5 +1,8 @@
 package com.itrex;
 
+import com.itrex.converter.BirthdayConverter;
+import com.itrex.entity.Birthday;
+import com.itrex.entity.Role;
 import com.itrex.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,6 +21,7 @@ public class HibernateRunner {
 //                );
 
         Configuration configuration = new Configuration();
+        configuration.addAttributeConverter(new BirthdayConverter());
 //        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy()); -change
 //        configuration.addAnnotatedClass(User.class);
 //        configuration.configure("path/to/cfg.xml");
@@ -30,8 +34,8 @@ public class HibernateRunner {
                     .username("ivan2@gmail.com")
                     .firstname("Ivan")
                     .lastname("Ivanov")
-                    .birthDate(LocalDate.of(2000, 1, 19))
-                    .age(20)
+                    .birthDate(new Birthday(LocalDate.of(2000, 1, 19)))
+                    .role(Role.ADMIN)
                     .build();
             session.save(user);
 

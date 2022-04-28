@@ -1,5 +1,6 @@
 package com.itrex;
 
+import com.itrex.entity.Birthday;
 import com.itrex.entity.User;
 import org.junit.jupiter.api.Test;
 
@@ -23,8 +24,7 @@ class HibernateRunnerTest {
                 .username("ivan@gmail.com")
                 .firstname("Ivan")
                 .lastname("Ivanov")
-                .birthDate(LocalDate.of(2000, 1, 19))
-                .age(20)
+                .birthDate(new Birthday(LocalDate.of(2000, 1, 19)))
                 .build();
 
         String sql = """
