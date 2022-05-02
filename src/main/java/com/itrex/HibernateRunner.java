@@ -1,5 +1,6 @@
 package com.itrex;
 
+import com.itrex.entity.PersonalInfo;
 import com.itrex.entity.User;
 import com.itrex.util.HibernateUtil;
 import lombok.extern.log4j.Log4j;
@@ -16,9 +17,11 @@ public class HibernateRunner {
 
     public static void main(String[] args) {
         User user = User.builder()
-                .username("ivan@gmail.com")
-                .lastname("Ivanov")
-                .firstname("Ivan")
+                .username("petr@gmail.com")
+                .personalInfo(PersonalInfo.builder()
+                        .lastname("Petrov")
+                        .firstname("Petr")
+                        .build())
                 .build();
         log.info("User entity is in transient state, object: {}", user);
 

@@ -1,5 +1,6 @@
 package com.itrex;
 
+import com.itrex.entity.Role;
 import com.itrex.entity.User;
 import com.itrex.util.HibernateUtil;
 import org.hibernate.Session;
@@ -13,7 +14,7 @@ public class Update {
             session.beginTransaction();
 
             User user = session.get(User.class, "ivan@gmail.com");
-            user.setLastname("Petrov1");
+            user.setRole(Role.ADMIN);
             System.out.println(session.isDirty());
 
             session.getTransaction().commit();
