@@ -1,40 +1,25 @@
 package com.itrex;
 
-import com.itrex.converter.BirthdayConverter;
 import com.itrex.entity.Birthday;
 import com.itrex.entity.Role;
 import com.itrex.entity.User;
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.itrex.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import java.time.LocalDate;
 
 public class HibernateRunner {
 
     public static void main(String[] args) {
-//        DriverManager
-//                .getConnection(
-//                        "db.url",
-//                        "db.username",
-//                        "db.password"
-//                );
 
-        Configuration configuration = new Configuration();
-        configuration.addAttributeConverter(new BirthdayConverter());
-        configuration.registerTypeOverride(new JsonBinaryType());
-//        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy()); -change
-//        configuration.addAnnotatedClass(User.class);
-//        configuration.configure("path/to/cfg.xml");
-        configuration.configure();
-        try (SessionFactory sessionFactory = configuration.buildSessionFactory();
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
             User user = User.builder()
                     .username("ivan@gmail.com")
-                    .firstname("Ivan")
+                    .firstname("Ivan12")
                     .lastname("Ivanov")
                     .birthDate(new Birthday(LocalDate.of(2000, 1, 19)))
                     .role(Role.ADMIN)
@@ -43,7 +28,8 @@ public class HibernateRunner {
                             "id": 25}
                             """)
                     .build();
-            session.save(user);
+            session.update(user);
+            System.out.println(session.get(User.class, "ivan@gmail.com"));
 
             session.getTransaction().commit();
         }
