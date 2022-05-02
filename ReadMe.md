@@ -11,3 +11,10 @@ session.persist == session.saveOrUpdate
 
 https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html
 <param name="conversionPattern" value="[%d{HH:mm:ss,SSS}] %p [%c: %L] %m%n"/>
+
+@Access(AccessType.FIELD) - annotation up Field
+@Transient - hibernate will not save field in date base(not transient field)
+
+@Temporal(TemporalType.TIMESTAMP)
+private Date date;      ----------transfer Date in Timestamp DB before 8JAVA
+
