@@ -5,3 +5,6 @@ session.clear(); - delete all cache
 session.close(); - delete all cache
 session.flush() - get changing in DB
 session.isDirty() - result true - if in DB was changes, if not - false
+session.refresh(Object object) - (void) - get data from DB
+session.merge(Object object) - put data to DB
+session.persist == session.saveOrUpdate
