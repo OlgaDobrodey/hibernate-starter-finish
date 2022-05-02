@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import java.lang.reflect.Field;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -54,10 +53,10 @@ class HibernateRunnerTest {
         System.out.println(sql.formatted(tableName, columnNames, columnValues));
 
         Connection connection = null;
-        PreparedStatement preparedStatement = connection.prepareStatement(sql.formatted(tableName, columnNames, columnValues));
-        for (Field declaredField : declaredFields) {
-            declaredField.setAccessible(true);
-            preparedStatement.setObject(1, declaredField.get(user));
-        }
+//        PreparedStatement preparedStatement = connection.prepareStatement(sql.formatted(tableName, columnNames, columnValues));
+//        for (Field declaredField : declaredFields) {
+//            declaredField.setAccessible(true);
+//            preparedStatement.setObject(1, declaredField.get(user));
+//        }
     }
 }
