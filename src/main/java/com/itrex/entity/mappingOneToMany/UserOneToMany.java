@@ -1,4 +1,4 @@
-package com.itrex.entity.mappingManyToOne;
+package com.itrex.entity.mappingOneToMany;
 
 import com.itrex.entity.PersonalInfo;
 import com.itrex.entity.Role;
@@ -10,14 +10,14 @@ import org.hibernate.annotations.TypeDef;
 import javax.persistence.*;
 
 @Data
-@ToString(exclude = "company")
+@ToString(exclude = "companyOneToMany")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "users3", schema = "public")
+@Table(name = "users4", schema = "public")
 @TypeDef(name = "itrex", typeClass = JsonBinaryType.class)
-public class UserMapping {
+public class UserOneToMany {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,5 +37,6 @@ public class UserMapping {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.PERSIST})
     @JoinColumn(name = "company_id") // company_id
-    private Company company;
+    private CompanyOneToMany companyOneToMany;
+
 }

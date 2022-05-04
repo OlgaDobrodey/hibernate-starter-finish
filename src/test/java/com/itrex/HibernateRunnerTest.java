@@ -1,7 +1,8 @@
 package com.itrex;
 
 import com.itrex.entity.Birthday;
-import com.itrex.entity.User;
+import com.itrex.entity.PersonalInfo;
+import com.itrex.entity.mappingManyToOne.UserMapping;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Column;
@@ -19,11 +20,13 @@ class HibernateRunnerTest {
 
     @Test
     void checkReflectionApi() throws SQLException, IllegalAccessException {
-        User user = User.builder()
-                .username("ivan@gmail.com")
-                .firstname("Ivan")
-                .lastname("Ivanov")
-                .birthDate(new Birthday(LocalDate.of(2000, 1, 19)))
+        UserMapping user = UserMapping.builder()
+                .username("petr@gmail.com")
+                .personalInfo(PersonalInfo.builder()
+                        .lastname("Petrov")
+                        .firstname("Petr")
+                        .birthDate(new Birthday(LocalDate.of(2000, 1, 2)))
+                        .build())
                 .build();
 
         String sql = """

@@ -15,7 +15,9 @@
     <mapping class="com.itrex.entity.User"/>
     <mapping class="com.itrex.entity.User2"/>
     <mapping class="com.itrex.entity.mappingManyToOne.UserMapping"/>
+    <mapping class="com.itrex.entity.mappingOneToMany.UserOneToMany"/>
     <mapping class="com.itrex.entity.mappingManyToOne.Company"/>
+    <mapping class="com.itrex.entity.mappingOneToMany.CompanyOneToMany"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

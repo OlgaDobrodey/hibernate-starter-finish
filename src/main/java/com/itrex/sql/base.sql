@@ -7,10 +7,10 @@ CREATE TABLE users
     birth_date DATE,
     role       VARCHAR(32),
     info       JSONB,
-    company_id INT REFERENCES company (id)
+    company_id INT REFERENCES companyOneToMany (id)
 );
 
-CREATE TABLE company
+CREATE TABLE companyOneToMany
 (
     id SERIAL PRIMARY KEY ,
     name VARCHAR(64) NOT NULL UNIQUE

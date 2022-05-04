@@ -1,4 +1,4 @@
-CREATE TABLE users3
+CREATE TABLE users4
 (
     id BIGSERIAL PRIMARY KEY ,
     firstname VARCHAR(128) ,
@@ -7,13 +7,13 @@ CREATE TABLE users3
     username VARCHAR(128) UNIQUE ,
     role VARCHAR(32),
     info JSONB,
-    company_id INT REFERENCES companyOneToMany (id)
+    company_id INT REFERENCES company1 (id)
 );
 
-CREATE TABLE companyOneToMany
+CREATE TABLE company1
 (
     id SERIAL PRIMARY KEY ,
     name VARCHAR(64) NOT NULL UNIQUE
 );
 
-DROP TABLE users3;
+DROP TABLE users4;
