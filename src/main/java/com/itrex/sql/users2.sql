@@ -7,6 +7,7 @@ CREATE TABLE users2
     role VARCHAR(32),
     info JSONB,
     PRIMARY KEY (firstname, lastname, birth_date)
+
 );
 
 create sequence users2_id_seq

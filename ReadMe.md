@@ -18,3 +18,9 @@ https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html
 @Temporal(TemporalType.TIMESTAMP)
 private Date date;      ----------transfer Date in Timestamp DB before 8JAVA
 
+@ManyToOne(
+optional = false - do inner join
+optional = true - (default) do left join
+
+fetch = FetchType.LAZY - default for collection
+fetch = FetchType.EAGER - default for Object
