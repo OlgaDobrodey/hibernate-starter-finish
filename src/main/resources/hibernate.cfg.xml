@@ -22,6 +22,7 @@
     <mapping class="com.itrex.entity.mappingManyToOne.Company"/>
     <mapping class="com.itrex.entity.mappingOneToMany.CompanyOneToMany"/>
     <mapping class="com.itrex.entity.manyTOManyReal.UserChat"/>
+    <mapping class="com.itrex.entity.ElementCollection.LocaleInfo"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

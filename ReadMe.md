@@ -27,3 +27,9 @@ fetch = FetchType.EAGER - default for Object
 
 
 company = session.getReference(CompanyOneToMany .class, 1); -getProxy
+
+SORT
+@org.hibernate.annotations.OrderBy(clause = "username DESC, lastname ASC")
+@javax.persistence.OrderBy("username DESC, personalInfo.lastname ASC")
+@SortNatural
+@SortComparator
