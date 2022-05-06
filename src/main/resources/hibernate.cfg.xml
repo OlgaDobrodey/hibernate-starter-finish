@@ -14,6 +14,8 @@
 
     <mapping class="com.itrex.entity.User"/>
     <mapping class="com.itrex.entity.User2"/>
+    <mapping class="com.itrex.entity.Profile"/>
+    <mapping class="com.itrex.entity.Profilefk"/>
     <mapping class="com.itrex.entity.mappingManyToOne.UserMapping"/>
     <mapping class="com.itrex.entity.mappingOneToMany.UserOneToMany"/>
     <mapping class="com.itrex.entity.mappingManyToOne.Company"/>

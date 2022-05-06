@@ -1,5 +1,6 @@
 package com.itrex.entity.mappingOneToMany;
 
+import com.itrex.entity.mappingManyToOne.Company;
 import com.itrex.util.HibernateUtil;
 import lombok.Cleanup;
 import org.junit.jupiter.api.Test;
@@ -45,4 +46,22 @@ class HibernateRunnerTest {
 
         session.getTransaction().commit();
     }
+
+
+    @Test
+    void checkLazyInitialisation() {
+        CompanyOneToMany  company = null;
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             var session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+//            company = session.getReference(CompanyOneToMany .class, 1);
+            company = session.get(CompanyOneToMany .class, 1);
+
+            session.getTransaction().commit();
+        }
+        var users = company.getUserMappings();
+        System.out.println(users.size());
+    }
+
 }

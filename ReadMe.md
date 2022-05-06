@@ -24,3 +24,6 @@ optional = true - (default) do left join
 
 fetch = FetchType.LAZY - default for collection
 fetch = FetchType.EAGER - default for Object
+
+
+company = session.getReference(CompanyOneToMany .class, 1); -getProxy
