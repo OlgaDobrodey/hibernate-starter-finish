@@ -1,18 +1,18 @@
 package com.itrex.entity.mappingOneToMany;
 
-import com.itrex.entity.PersonalInfo;
-import com.itrex.entity.Profile;
-import com.itrex.entity.Profilefk;
-import com.itrex.entity.Role;
+import com.itrex.entity.*;
+import com.itrex.entity.manyTOManyReal.UserChat;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.*;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
-@ToString(exclude ={ "companyOneToMany","profile"})
+@ToString(exclude ={ "companyOneToMany","profile","chats"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -44,7 +44,26 @@ public class UserOneToMany {
     @OneToOne(mappedBy = "user")
     private Profile profile;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY,
+            optional = false)
     private Profilefk profilefk;
 
+//    @Builder.Default
+//    @ManyToMany
+//    @JoinTable(
+//            name = "users_chat",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "chat_id"))
+//    private Set<Chat> chats = new HashSet<>();
+//
+//    public void addChat(Chat chat) {
+//        chats.add(chat);
+//        chat.getUsers().add(this);
+//    }
+
+    @Builder.Default
+    @OneToMany(mappedBy = "user")
+    private Set<UserChat> userChats = new HashSet<>();
 }
+
+

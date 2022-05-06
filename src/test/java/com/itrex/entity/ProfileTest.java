@@ -4,8 +4,6 @@ import com.itrex.entity.mappingOneToMany.UserOneToMany;
 import com.itrex.util.HibernateUtil;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ProfileTest {
 
     @Test

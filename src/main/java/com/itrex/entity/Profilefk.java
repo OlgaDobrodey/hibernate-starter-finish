@@ -24,7 +24,7 @@ public class Profilefk {
     private String language;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private UserOneToMany user;
 
     public void setUser(UserOneToMany user) {

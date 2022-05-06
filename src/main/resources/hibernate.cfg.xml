@@ -16,10 +16,12 @@
     <mapping class="com.itrex.entity.User2"/>
     <mapping class="com.itrex.entity.Profile"/>
     <mapping class="com.itrex.entity.Profilefk"/>
+    <mapping class="com.itrex.entity.Chat"/>
     <mapping class="com.itrex.entity.mappingManyToOne.UserMapping"/>
     <mapping class="com.itrex.entity.mappingOneToMany.UserOneToMany"/>
     <mapping class="com.itrex.entity.mappingManyToOne.Company"/>
     <mapping class="com.itrex.entity.mappingOneToMany.CompanyOneToMany"/>
+    <mapping class="com.itrex.entity.manyTOManyReal.UserChat"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
