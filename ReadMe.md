@@ -33,3 +33,18 @@ SORT
 @javax.persistence.OrderBy("username DESC, personalInfo.lastname ASC")
 @SortNatural
 @SortComparator
+ 
+@MapKey(name = "username")
+@SortNatural
+private Map<String, User> users = new TreeMap<>();
+ 
+@ElementCollection
+@CollectionTable(name = "company_locale", joinColumns = @JoinColumn(name = "company_id"))
+//    @AttributeOverride(name = "lang", column = @Column(name = "language"))
+//    private List<LocaleInfo> locales = new ArrayList<>();
+@MapKeyColumn(name = "lang")
+@Column(name = "description")
+private Map<String, String> locales = new HashMap<>();
+
+
+
